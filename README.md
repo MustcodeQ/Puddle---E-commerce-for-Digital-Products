@@ -18,26 +18,23 @@ Puddle is a web-based e-commerce platform that allows users to buy and sell digi
 - **Frontend**: HTML, CSS (Tailwind CSS)
 - **Database**: SQLite (or any other database of your choice)
 - **Version Control**: Git
+Install dependencies:
 
-## Installation
+pip install -r requirements.txt
+Run migrations:
 
-Follow these steps to set up the project locally:
+python manage.py migrate
+Create a superuser (optional):
 
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/MustcodeQ/Puddle---E-commerce-for-Digital-Products.git
-   cd puddle
+python manage.py createsuperuser
+Run the development server:
 
+python manage.py runserver
+Access the application:
+Open your web browser and go to http://127.0.0.1:8000/.
 
-##Create a virtual environment:
-  python -m venv venv
-  source venv/bin/activate  # On Windows use `venv\Scripts\activate`
-##Install dependencies:
-  pip install -r requirements.txt
-##Run migrations:
-  python manage.py migrate
-##Create a superuser (optional):
-  python manage.py createsuperuser
-##Run the development server:
-  python manage.py runserver
-  
+Usage
+Register a new account or log in with an existing account.
+Browse and search for digital products.
+Join community discussions and share your thoughts on products.
+Explore categories to find relevant products.
