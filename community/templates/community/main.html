@@ -1,0 +1,58 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+<div class="flex flex-col md:flex-row h-screen">
+    <!-- Sidebar -->
+    <div class="bg-gray-800 w-full md:w-64 p-4 md:relative md:flex md:flex-col">
+        <div class="flex items-center mb-4">
+            <h1 class="text-white text-2xl font-bold">Community</h1>
+        </div>
+        <div class="mb-2">
+            <h2 class="text-gray-400 text-sm">Channels</h2>
+            <ul class="mt-2">
+                <li><a href="#" class="text-white hover:bg-gray-700 block p-2 rounded"># General</a></li>
+                <li><a href="#" class="text-white hover:bg-gray-700 block p-2 rounded"># Announcements</a></li>
+                <li><a href="#" class="text-white hover:bg-gray-700 block p-2 rounded"># Support</a></li>
+                <li><a href="#" class="text-white hover:bg-gray-700 block p-2 rounded"># Feedback</a></li>
+            </ul>
+        </div>
+        <div>
+            <h2 class="text-gray-400 text-sm">Direct Messages</h2>
+            <ul class="mt-2">
+                <li><a href="#" class="text-white hover:bg-gray-700 block p-2 rounded">User  1</a></li>
+                <li><a href="#" class="text-white hover:bg-gray-700 block p-2 rounded">User  2</a></li>
+                <li><a href="#" class="text-white hover:bg-gray-700 block p-2 rounded">User  3</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Chat Area -->
+    <div class="flex-1 flex flex-col">
+        <div class="bg-gray-900 p-4 flex items-center justify-between">
+            <h2 class="text-white text-xl"># General</h2>
+            <button class="bg-blue-500 text-white px-4 py-2 rounded">Create Channel</button>
+        </div>
+        <div class="flex-1 overflow-y-auto p-4">
+            <div class="mb-4">
+                <div class="flex items-start mb-2">
+                    <div class="bg-blue-600 text-white rounded-full w-8 h-8 flex items-center justify-center mr-2">U1</div>
+                    <div>
+                        <div class="text-white font-bold">User  1</div>
+                        <div class="text-gray-400">Hello everyone! How's it going?</div>
+                    </div>
+                </div>
+                <div class="flex items-start mb-2">
+                    <div class="bg-green-600 text-white rounded-full w-8 h-8 flex items-center justify-center mr-2">U2</div>
+                    <div>
+                        <div class="text-white font-bold">User  2</div>
+                        <div class="text-gray-400">I'm doing well, thanks for asking!</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bg-gray-800 p-4">
+            <input type="text" placeholder="Type your message..." class="w-full p-2 rounded bg-gray-700 text-white focus:outline-none" />
+        </div>
+    </div>
+</div>
+{% endblock %}

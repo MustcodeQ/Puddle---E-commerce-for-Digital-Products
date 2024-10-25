@@ -1,0 +1,109 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Dashboard - Puddle{% endblock %}
+
+{% block content %}
+<div class="container mx-auto p-6">
+    <h1 class="text-3xl font-bold mb-6">Dashboard</h1>
+
+    <!-- Dashboard Stats -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+        <!-- Total Users -->
+        <div class="bg-white p-6 rounded-lg shadow-md">
+            <h2 class="text-xl font-semibold text-gray-800 mb-4">Total Users</h2>
+            <p class="text-3xl font-bold text-blue-500">1,234</p>
+        </div>
+
+        <!-- Active Sessions -->
+        <div class="bg-white p-6 rounded-lg shadow-md">
+            <h2 class="text-xl font-semibold text-gray-800 mb-4">Active Sessions</h2>
+            <p class="text-3xl font-bold text-green-500">567</p>
+        </div>
+
+        <!-- Total Items -->
+        <div class="bg-white p-6 rounded-lg shadow-md">
+            <h2 class="text-xl font-semibold text-gray-800 mb-4">Total Items</h2>
+            <p class="text-3xl font-bold text-purple-500">78</p>
+        </div>
+    </div>
+
+    <!-- Charts and Graphs -->
+    <div class="bg-white p-6 rounded-lg shadow-md mb-6">
+        <h2 class="text-xl font-semibold text-gray-800 mb-4">User Growth</h2>
+        <canvas id="userGrowthChart"></canvas>
+    </div>
+            
+    <!-- Recent Activities -->
+    <div class="bg-white p-6 rounded-lg shadow-md">
+        <h2 class="text-xl font-semibold text-gray-800 mb-4">Recent Activities</h2>
+        <ul class="space-y-4">
+            <li class="border-b pb-4">
+                <p class="text-gray-700">User <span class="font-bold">John Doe</span> signed up.</p>
+                <p class="text-sm text-gray-500">5 minutes ago</p>
+            </li>
+
+            <li class="border-b pb-4">
+                <p class="text-gray-700">Item <span class="font-bold">"New Product"</span> was added.</p>
+                <p class="text-sm text-gray-500">30 minutes ago</p>
+            </li>
+            <li class="border-b pb-4">
+                <p class="text-gray-700">User <span class="font-bold">Jane Smith</span> updated their profile.</p>
+                <p class="text-sm text-gray-500">1 hour ago</p>
+            </li>
+            <li class="border-b pb-4">
+                <p class="text-gray-700">Category <span class="font-bold">"Electronics"</span> was updated.</p>
+                <p class="text-sm text-gray-500">2 hours ago</p>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!-- Chart.js CDN -->
+ <!-- to mkae the chart.js work properly we need to user https://cdn-->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    //char-code
+    const ctx = document.getElementById('userGrowthChart').getContext('2d');
+    const userGrowthChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+            datasets: [{
+                label: 'User Growth',
+                data: [12, 19, 3, 5, 2, 3, 7],
+                backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+
+// weuse helper function to user helper packages 
+//     import Chart from 'chart.js/auto';
+// import { getRelativePosition } from 'chart.js/helpers';
+
+// const chart = new Chart(ctx, {
+//   type: 'line',
+//   data: data,
+//   options: {
+//     onClick: (e) => {
+//       const canvasPosition = getRelativePosition(e, chart);
+
+//       // Substitute the appropriate scale IDs
+//       const dataX = chart.scales.x.getValueForPixel(canvasPosition.x);
+//       const dataY = chart.scales.y.getValueForPixel(canvasPosition.y);
+//     }
+//   }
+// });
+
+</script>
+{% endblock %}

@@ -1,0 +1,74 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Settings - Puddle{% endblock %}
+
+{% block content %}
+<div class="bg-white shadow-md rounded-lg p-6 max-w-2xl mx-auto">
+    <h1 class="text-2xl font-bold mb-6">User Settings</h1>
+    
+    <!-- Profile Section -->
+    <div class="mb-6">
+        <h2 class="text-xl font-semibold mb-4">Profile Settings</h2>
+        <form method="POST" action="#">
+            {% csrf_token %}
+            <label for="username" class="block text-gray-700 font-medium mb-2">Username:</label>
+            <input type="text" id="username" name="username" value="{{ user.username }}" required class="block w-full border border-gray-300 rounded py-2 px-3 mb-4">
+
+            <label for="email" class="block text-gray-700 font-medium mb-2">Email:</label>
+            <input type="email" id="email" name="email" value="{{ user.email }}" required class="block w-full border border-gray-300 rounded py-2 px-3 mb-4">
+
+            <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Update Profile</button>
+        </form>
+    </div>
+
+    <!-- Password Section -->
+    <div class="mb-6">
+        <h2 class="text-xl font-semibold mb-4">Change Password</h2>
+        <form method="POST" action="#">
+            {% csrf_token %}
+            <label for="old_password" class="block text-gray-700 font-medium mb-2">Old Password:</label>
+            <input type="password" id="old_password" name="old_password" required class="block w-full border border-gray-300 rounded py-2 px-3 mb-4">
+
+            <label for="new_password" class="block text-gray-700 font-medium mb-2">New Password:</label>
+            <input type="password" id="new_password" name="new_password" required class="block w-full border border-gray-300 rounded py-2 px-3 mb-4">
+
+            <label for="confirm_password" class="block text-gray-700 font-medium mb-2">Confirm Password:</label>
+            <input type="password" id="confirm_password" name="confirm_password" required class="block w-full border border-gray-300 rounded py-2 px-3 mb-4">
+
+            <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Change Password</button>
+        </form>
+    </div>
+
+    <!-- Notification Preferences -->
+    <div class="mb-6">
+        <h2 class="text-xl font-semibold mb-4">Notification Preferences</h2>
+        <form method="POST" action="#">
+            {% csrf_token %}
+            <label for="email_notifications" class="block text-gray-700 font-medium mb-2">
+                <input type="checkbox" id="email_notifications" name="email_notifications" {% if user.profile.email_notifications %} checked {% endif %}>
+                Email Notifications
+            </label>
+
+            <label for="sms_notifications" class="block text-gray-700 font-medium mb-2">
+                <input type="checkbox" id="sms_notifications" name="sms_notifications" {% if user.profile.sms_notifications %} checked {% endif %}>
+                SMS Notifications
+            </label>
+
+            <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Update Preferences</button>
+        </form>
+    </div>
+
+    <!-- Dark Mode Toggle -->
+    <div class="mb-6">
+        <h2 class="text-xl font-semibold mb-4">Theme Preferences</h2>
+        <form method="POST" action="#">
+            {% csrf_token %}
+            <label for="dark_mode_toggle" class="block text-gray-700 font-medium mb-2">
+                <input type="checkbox" id="dark_mode_toggle" name="dark_mode" {% if user.profile.dark_mode %} checked {% endif %}>
+                Enable Dark Mode
+            </label>
+            <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Update Theme</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
