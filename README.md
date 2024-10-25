@@ -20,23 +20,22 @@ Puddle is a web-based e-commerce platform that allows users to buy and sell digi
 - **Version Control**: Git
 
 ## Installation
+- pip install -r requirements.txt
+- Run migrations:
 
-Install dependencies:
+## Install dependencies:
 
-pip install -r requirements.txt
-Run migrations:
+- pip install -r requirements.txt
+- Run migrations:
+- python manage.py migrate
 
+## Create a superuser (optional):
+- python manage.py createsuperuser
+- Run the development server:
+- python manage.py runserver
+## Usage
 
-python manage.py migrate
-Create a superuser (optional):
-
-python manage.py createsuperuser
-Run the development server:
-
-
-python manage.py runserver
-Usage
-Access the application by opening your web browser and going to http://127.0.0.1:8000/.
+- Access the application by opening your web browser and going to  http://127.0.0.1:8000/.
 Register a new account or log in with an existing account.
 Browse and search for digital products.
 Join community discussions and share your thoughts on products.
